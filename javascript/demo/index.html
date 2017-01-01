@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+      p{font-size: 50px;position:absolute;left:0;top:0;}
+      body {border:10px solid #9f0;}
+      section{
+        border:20px solid #c40000;
+        padding:50px;
+        margin:40px;
+        position: absolute;
+        left:0;top:0;
+      }
+    </style>
+</head>
+<body>
+  <!-- p标签的默认margin是随着内部字体大小变化的, 字体是多大，margin就是多大 -->
+  <section>
+  <p>1234</p>
+  </section>
+
+  <script type="text/javascript">
+/**
+ * @param  {[type]} elem [description]
+ * @param  {[type]} attr [description]
+ */
+function css(elem, attr) {
+  return window.getComputedStyle? getComputedStyle(elem, null)[attr]: elem.currentStyle[attr];
+}
+
+    var p = document.getElementsByTagName('p')[0];
+    var body = document.body;
+    var documentElement = document.documentElement;
+    function printf(elem) {
+      console.log(elem.tagName);
+      console.log(elem);
+      console.log(elem.offsetParent);
+      console.log(elem.offsetTop);
+      console.log(elem.offsetLeft);
+    }
+
+    var section = document.getElementsByTagName('section')[0];
+
+    console.log(offset(p));
+    /**
+     * 某个元素相对于其偏移参照物的位移
+     * @param  {[type]} sElem [description]
+     * @param  {[type]} tElem [description]
+     * @return {[type]}       [description]
+     */
+    function offset(sElem, tElem) {
+      tElem = tElem || document.body;
+      var left = sElem.offsetLeft,
+          top = sElem.offsetTop,
+          parent = sElem.offsetParent,
+          isIE8 = window.navigator.userAgent.indexOf('MSIE 8.0') > -1;
+
+      while (!!parent && parent !== tElem && parent !== document.body) {
+        if (isIE8) {
+          left += parent.offsetLeft;
+          top += parent.offsetTop;
+        } else {
+          left += parent.offsetLeft + parent.clientLeft;
+          top += parent.offsetTop + parent.clientTop;
+        }
+
+        parent = parent.offsetParent;
+      }
+
+      return {left: left, top: top};
+    }
+  </script>
+</body>
+</html>
