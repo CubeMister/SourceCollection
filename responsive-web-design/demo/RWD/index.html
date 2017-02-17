@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 页面的编码方式，这句话一定要尽早的声明，就是head标签里面的第一句话就要声明，如果把这句话声明在title后面的话，在老版本的IE下面，如果title标签中含有中文，有可能会无法正确的解析，它会出现两种可能的情况，整个页面就是空白，就相当于解析错误了，不再解析了，另外一种就是出现页面的乱码，为了一些老的浏览器，我们尽量把charset放在head的第一行来声明，还有一个规则就是根据W3C的标准来说呢，charset的声明一定要在页面的前1024个字节内声明，如果你放在页面的最后面，是无效的 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <!-- 代表IE的文档兼容性，设置这一行代表在IE浏览器下呈现的方式，因为IE从IE8开始多了一个兼容模式，就是它为了兼容一些，在IE8下显示不正常，但在老的浏览器下显示正常的一些模式，IE9再往后也会支持这样一种兼容模式，它代表了同样的一个网站，在IE浏览器下，可以用IE7的模式来显示，就是模仿IE7的行为，也可以用IE8，IE9，IE10，用它们这样的行为来显示一个网站，比如设置成这样一个值: ie=EmulateIE7 就代表模仿IE7的行为，就告诉浏览器，如果可能的话，就用IE7的行为来显示这个页面，ie=edge表示强制以最新的IE浏览器模式渲染页面，从而确保了这个网站在所有的IE浏览器下，都尽可能的为用户提供最佳的体验，注意，在这里面我说到了，IE9和IE10，没有说IE11，因为IE11这个文档模式已经被弃用了，IE11已经对标准支持的比较好了 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+</head>
+<body>
+
+<!--[if lte IE8]>
+<p class="browserupgrade">您的浏览器版本老的可笑，您可以到这个地址中更新您的浏览器<a href="http://browsehappy.com/" target="_blank">http://browsehappy.com/</a></p>
+<![endif]-->
+
+</body>
+</html>
